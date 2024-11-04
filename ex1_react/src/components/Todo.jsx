@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Todo = ({ todo, removeTodo, editTodo }) => {
+const Todo = ({ todo, removeTodo, editTodo, toggleTodo }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newText, setNewText] = useState(todo.text);
 
@@ -21,7 +21,13 @@ const Todo = ({ todo, removeTodo, editTodo }) => {
     return (
         <section className="todo">
             <div className="div">
-                <input type="checkbox" id={`checkbox-${todo.id}`} className="custom-checkbox" />
+                <input
+                    type="checkbox"
+                    id={`checkbox-${todo.id}`}
+                    className="custom-checkbox"
+                    checked={todo.isCompleted}
+                    onChange={() => toggleTodo(todo.id)}
+                />
                 {isEditing ? (
                     <input
                         type="text"

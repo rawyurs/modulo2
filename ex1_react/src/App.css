@@ -162,3 +162,26 @@ p {
 input {
   padding: 1rem;
 }
+
+.botoesfiltro {
+  margin-top: 0.5rem;
+  border: 0.05rem solid #afafaf;
+  cursor: pointer;
+  padding: 0.8rem 1rem 0.7rem;
+  text-transform: capitalize;
+  flex: 0.3;
+  background-color: white;
+  color: #313131;
+}
+
+.filtros {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.botoesfiltro.selected {
+  border: 2px solid #0c0c0c;
+  background-color: #ffffff;
+}

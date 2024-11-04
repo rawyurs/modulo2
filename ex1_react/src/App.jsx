@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
+import TodoListFilter from "./components/TodoListFilter";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -11,6 +12,7 @@ function App() {
       isCompleted: false,
     },
   ]);
+  const [filter, setFilter] = useState('all');
 
   const addTodo = (text) => {
     const newTodos = [
@@ -36,25 +38,44 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const toggleTodo = (id) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+    setTodos(updatedTodos);
+  };
+
+  const filteredTodos = todos.filter(todo => {
+    if (filter === 'active') {
+      return !todo.isCompleted;
+    }
+    if (filter === 'completed') {
+      return todo.isCompleted;
+    }
+    return true;
+  });
+
   return (
     <div className="App">
       <section className="card-todo">
         <h3>TodoMatic</h3>
         <p className="paragrafos">What needs to be done?</p>
         <TodoForm addTodo={addTodo} />
+        <TodoListFilter filter={filter} setFilter={setFilter} />
 
-        {todos.length > 0 && (
+        {filteredTodos.length > 0 && (
           <p>
-            {todos.length} task{todos.length === 1 ? '' : 's'} remaining
+            {filteredTodos.length} task{filteredTodos.length === 1 ? '' : 's'} remaining
           </p>
         )}
 
-        {todos.map((todo) => (
+        {filteredTodos.map((todo) => (
           <Todo
             key={todo.id}
             todo={todo}
             removeTodo={removeTodo}
             editTodo={editTodo}
+            toggleTodo={toggleTodo}
           />
         ))}
       </section>
