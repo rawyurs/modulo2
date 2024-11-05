@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Todo = ({ todo, removeTodo, editTodo, toggleTodo }) => {
+const Todo = ({ todo, removeTodo, editTodo, toggleTodo, todos }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newText, setNewText] = useState(todo.text);
 
@@ -17,6 +17,10 @@ const Todo = ({ todo, removeTodo, editTodo, toggleTodo }) => {
         setNewText(todo.text);
         setIsEditing(false);
     };
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
 
     return (
         <section className="todo">

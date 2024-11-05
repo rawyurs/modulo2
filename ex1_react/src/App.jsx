@@ -6,13 +6,16 @@ import TodoListFilter from "./components/TodoListFilter";
 import Search from "./components/Search";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "Fazer o ex de TDW",
-      isCompleted: false,
-    },
-  ]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [
+      {
+        id: 1,
+        text: "Fazer o ex de TDW",
+        isCompleted: false,
+      }];
+  });
+
 
   const [search, setSearch] = useState("")
 
@@ -85,6 +88,7 @@ function App() {
               removeTodo={removeTodo}
               editTodo={editTodo}
               toggleTodo={toggleTodo}
+              todos={todos}
             />
           ))}
       </section>
