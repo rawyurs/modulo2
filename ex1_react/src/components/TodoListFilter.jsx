@@ -11,19 +11,19 @@ const TodoListFilter = ({ filter, setFilter }) => {
                 className={`botoesfiltro ${filter === 'all' ? 'selected' : ''}`}
                 onClick={() => handleFilterClick('all')}
             >
-                All
+                Todos
             </button>
             <button
                 className={`botoesfiltro ${filter === 'active' ? 'selected' : ''}`}
                 onClick={() => handleFilterClick('active')}
             >
-                Active
+                Em progresso
             </button>
             <button
                 className={`botoesfiltro ${filter === 'completed' ? 'selected' : ''}`}
                 onClick={() => handleFilterClick('completed')}
             >
-                Completed
+                Terminadas
             </button>
         </div>
     );

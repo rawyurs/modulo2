@@ -42,13 +42,13 @@ const Todo = ({ todo, removeTodo, editTodo, toggleTodo }) => {
             <div className="btns">
                 {isEditing ? (
                     <>
-                        <button className="btnSave" onClick={handleSaveClick}>Save</button>
-                        <button className="btnCancel" onClick={handleCancelClick}>Cancel</button>
+                        <button className="btnSave" onClick={handleSaveClick}>Guardar</button>
+                        <button className="btnCancel" onClick={handleCancelClick}>Cancelar</button>
                     </>
                 ) : (
                     <>
-                        <button className="btnEdit" onClick={handleEditClick}>Edit</button>
-                        <button className="btnDelete" onClick={() => removeTodo(todo.id)}>Delete</button>
+                        <button className="btnEdit" onClick={handleEditClick}>Editar</button>
+                        <button className="btnDelete" onClick={() => removeTodo(todo.id)}>Eliminar</button>
                     </>
                 )}
             </div>

@@ -3,6 +3,7 @@ import "./App.css";
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import TodoListFilter from "./components/TodoListFilter";
+import Search from "./components/Search";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -12,6 +13,10 @@ function App() {
       isCompleted: false,
     },
   ]);
+
+  const [search, setSearch] = useState("")
+
+
   const [filter, setFilter] = useState('all');
 
   const addTodo = (text) => {
@@ -59,25 +64,29 @@ function App() {
     <div className="App">
       <section className="card-todo">
         <h3>TodoMatic</h3>
-        <p className="paragrafos">What needs to be done?</p>
+        <p className="paragrafos">O que precisa ser feito?</p>
         <TodoForm addTodo={addTodo} />
         <TodoListFilter filter={filter} setFilter={setFilter} />
+        <Search search={search} setSearch={setSearch} />
 
         {filteredTodos.length > 0 && (
           <p>
-            {filteredTodos.length} task{filteredTodos.length === 1 ? '' : 's'} remaining
+            {filteredTodos.length} task{filteredTodos.length === 1 ? '' : 's'} em falta
           </p>
         )}
 
-        {filteredTodos.map((todo) => (
-          <Todo
-            key={todo.id}
-            todo={todo}
-            removeTodo={removeTodo}
-            editTodo={editTodo}
-            toggleTodo={toggleTodo}
-          />
-        ))}
+        {filteredTodos
+          .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((todo) => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              removeTodo={removeTodo}
+              editTodo={editTodo}
+              toggleTodo={toggleTodo}
+            />
+          ))}
       </section>
     </div>
   );

@@ -14,7 +14,7 @@ function TodoForm({ addTodo }) {
   return (
     <form onSubmit={handleSubmit} className="formatar-form">
       <input type="text" value={tarefa} onChange={(e) => setTarefa(e.target.value)}></input>
-      <button className="btn btn_primary" type="submit">Add</button>
+      <button className="btn btn_primary" type="submit">Adicionar</button>
     </form>
 
 
