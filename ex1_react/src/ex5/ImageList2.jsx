@@ -24,7 +24,7 @@ const ImageList = () => {
 
     return (
         <div>
-            <h1>Cat Images</h1>
+            <h1>gatinhos...</h1>
 
             {/* Mostrar Loading */}
             {isLoading && <p>Loading...</p>}
@@ -42,11 +42,11 @@ const ImageList = () => {
             {/* Paginação */}
             <div className="pagination">
                 <button onClick={handlePrevPage} disabled={page === 1}>
-                    Previous
+                    Voltar
                 </button>
-                <span>{`Page ${page}`}</span>
+                <span>{`Página ${page}`}</span>
                 <button onClick={handleNextPage} disabled={images?.length < limit}>
-                    Next
+                    Seguinte
                 </button>
             </div>
         </div>
@@ -54,3 +54,6 @@ const ImageList = () => {
 };
 
 export default ImageList;
+
+
+
