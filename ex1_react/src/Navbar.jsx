@@ -13,6 +13,7 @@ const Navbar = () => (
             <li><Link to="/ex2">Exercício 2</Link></li>
             <li><Link to="/ex3">ATM</Link></li>
             <li><Link to="/ex4">Exercício 4</Link></li>
+            <li><Link to="/ex5">Exercício 5</Link></li>
 
         </ul>
     </nav>
