@@ -227,3 +227,27 @@ input {
   display: flex;
   flex-direction: column;
 }
+
+/* ex4 */
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-list img {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}

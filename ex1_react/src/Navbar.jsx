@@ -12,8 +12,12 @@ const Navbar = () => (
             <li><Link to="/ex1">Exercício 1</Link></li>
             <li><Link to="/ex2">Exercício 2</Link></li>
             <li><Link to="/ex3">ATM</Link></li>
+            <li><Link to="/ex4">Exercício 4</Link></li>
+
         </ul>
     </nav>
 );
 
 export default Navbar;
+
+
