@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { TodoContext } from "../App2"; // Importar o contexto
 
-const Todo = ({ todo, removeTodo, editTodo, toggleTodo, todos }) => {
+const Todo2 = ({ todo }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newText, setNewText] = useState(todo.text);
+    const { removeTodo, editTodo, toggleTodo, todos } = useContext(TodoContext); // Acessar funções via contexto
 
     const handleEditClick = () => {
         setIsEditing(true);
@@ -19,8 +21,8 @@ const Todo = ({ todo, removeTodo, editTodo, toggleTodo, todos }) => {
     };
 
     useEffect(() => {
-        localStorage.setItem("todos", JSON.stringify(todos))
-    }, [todos])
+        localStorage.setItem("todosEx2", JSON.stringify(todos));
+    }, [todos]);
 
     return (
         <section className="todo">
@@ -60,4 +62,5 @@ const Todo = ({ todo, removeTodo, editTodo, toggleTodo, todos }) => {
     );
 };
 
-export default Todo;
+export default Todo2;
+

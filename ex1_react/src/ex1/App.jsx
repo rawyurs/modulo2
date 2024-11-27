@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "../App.css";
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import TodoListFilter from "./components/TodoListFilter";
@@ -7,7 +7,7 @@ import Search from "./components/Search";
 
 function App() {
   const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem("todos");
+    const savedTodos = localStorage.getItem("todosEx1");
     return savedTodos ? JSON.parse(savedTodos) : [
       {
         id: 1,
